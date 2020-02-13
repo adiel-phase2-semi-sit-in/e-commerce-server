@@ -1,17 +1,13 @@
 const { User } = require("../models");
 
 class UserController {
-  static register(req, res, next) {
+  static async register(req, res, next) {
     const { username, email, password } = req.body;
-    User.create({
-      username,
-      email,
-      password
-    })
+    User.create({ username, email, password })
       .then(response => {
         res.status(201).json(response);
       })
-      .catch(err => res.status(500).json(err));
+      .catch(err => next(err));
   }
 }
 
