@@ -25,7 +25,7 @@ const ERR_EMAIL_INVALID_MESSAGE = "Invalid email format";
 const ERR_EMAIL_NULL_MESSAGE = "Email is required field";
 const ERR_PASSWORD_NULL_MESSAGE = "Password is required field";
 const ERR_PASSWORD_LENGTH_MESSAGE = "Password at least have 6 characters";
-
+const ERR_ROLE_ENUM_MESSAGE = "Invalid user role";
 // product
 const ERR_PRODUCT_NAME_NULL_MESSAGE = "Product name is required field";
 const ERR_PRODUCT_NAME_EMPTY_MESSAGE = "Product name should not be empty";
@@ -56,6 +56,7 @@ module.exports = {
   ERR_EMAIL_NULL_MESSAGE,
   ERR_PASSWORD_NULL_MESSAGE,
   ERR_PASSWORD_LENGTH_MESSAGE,
+  ERR_ROLE_ENUM_MESSAGE,
   ERR_PRODUCT_NAME_NULL_MESSAGE,
   ERR_PRODUCT_NAME_EMPTY_MESSAGE,
   ERR_PRODUCT_PRICE_NULL_MESSAGE,

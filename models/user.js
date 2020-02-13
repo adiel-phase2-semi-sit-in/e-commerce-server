@@ -6,7 +6,8 @@ const {
   ERR_EMAIL_INVALID_MESSAGE,
   ERR_EMAIL_NULL_MESSAGE,
   ERR_PASSWORD_LENGTH_MESSAGE,
-  ERR_PASSWORD_NULL_MESSAGE
+  ERR_PASSWORD_NULL_MESSAGE,
+  ERR_ROLE_ENUM_MESSAGE
 } = require("../constants");
 
 module.exports = (sequelize, DataTypes) => {
@@ -53,6 +54,16 @@ module.exports = (sequelize, DataTypes) => {
             msg: ERR_PASSWORD_NULL_MESSAGE
           }
         }
+      },
+      role: {
+        type: DataTypes.ENUM("user", "admin"),
+        validate: {
+          isIn: {
+            args: [["user", "admin"]],
+            msg: ERR_ROLE_ENUM_MESSAGE
+          }
+        },
+        defaultValue: "user"
       }
     },
     {
