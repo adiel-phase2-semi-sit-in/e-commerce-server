@@ -1,7 +1,7 @@
 const { User } = require("../models");
 const { generateToken, comparePassword } = require("../libs");
 const {
-  ERR_EMAIL_PASSWORD,
+  ERR_INVALID_EMAIL_PASSWORD,
   SUCCESS_SIGNUP_MESSAGE,
   SUCCESS_SIGNIN_MESSAGE
 } = require("../constants");
@@ -36,10 +36,10 @@ async function signIn(req, res, next) {
         message: SUCCESS_SIGNIN_MESSAGE
       });
     } else {
-      next(ERR_EMAIL_PASSWORD);
+      next(ERR_INVALID_EMAIL_PASSWORD);
     }
   } else {
-    next(ERR_EMAIL_PASSWORD);
+    next(ERR_INVALID_EMAIL_PASSWORD);
   }
 }
 

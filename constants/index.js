@@ -1,19 +1,34 @@
-const ERR_EMAIL_PASSWORD = {
+const ERR_INVALID_EMAIL_PASSWORD = {
   status: 400,
   message: "Email / Password wrong"
 };
+// error status
+const ERR_BAD_REQUEST_STATUS = 400;
+const ERR_UNAUTHORIZED_STATUS = 401;
+const ERR_INTERNAL_SERVER_ERROR_STATUS = 500;
+
+// auth
 const SUCCESS_SIGNUP_MESSAGE = "Successfully Sign Up";
 const SUCCESS_SIGNIN_MESSAGE = "Successfully Sign In";
+
+// sequelize
 const ERR_SEQUELIZE_CONSTRAINT = "SequelizeUniqueConstraintError";
 const ERR_SEQUELIZE_VALIDATION = "SequelizeValidationError";
 const ERR_SEQUELIZE_UNIQUE_MESSAGE = "email must be unique";
 const ERR_EMAIL_UNIQUE = "Email has been used";
 const ERR_INTERNAL_SERVER_ERROR_MESSAGE = "Internal Server Error";
-const ERR_BAD_REQUEST_STATUS = 400;
-const ERR_UNAUTHORIZED_STATUS = 401;
-const ERR_INTERNAL_SERVER_ERROR_STATUS = 500;
+
+// user
+const ERR_USERNAME_EMPTY_MESSAGE = "Username should not be empty";
+const ERR_USERNAME_NULL_MESSAGE = "Username is required field";
+const ERR_EMAIL_INVALID_MESSAGE = "Invalid email format";
+const ERR_EMAIL_NULL_MESSAGE = "Email is required field";
+const ERR_PASSWORD_NULL_MESSAGE = "Password is required field";
+const ERR_PASSWORD_LENGTH_MESSAGE = "Password at least have 6 characters";
+
+// export
 module.exports = {
-  ERR_EMAIL_PASSWORD,
+  ERR_INVALID_EMAIL_PASSWORD,
   SUCCESS_SIGNUP_MESSAGE,
   SUCCESS_SIGNIN_MESSAGE,
   ERR_SEQUELIZE_CONSTRAINT,
@@ -23,5 +38,11 @@ module.exports = {
   ERR_UNAUTHORIZED_STATUS,
   ERR_SEQUELIZE_UNIQUE_MESSAGE,
   ERR_INTERNAL_SERVER_ERROR_STATUS,
-  ERR_SEQUELIZE_VALIDATION
+  ERR_SEQUELIZE_VALIDATION,
+  ERR_USERNAME_EMPTY_MESSAGE,
+  ERR_USERNAME_NULL_MESSAGE,
+  ERR_EMAIL_INVALID_MESSAGE,
+  ERR_EMAIL_NULL_MESSAGE,
+  ERR_PASSWORD_NULL_MESSAGE,
+  ERR_PASSWORD_LENGTH_MESSAGE
 };

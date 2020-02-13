@@ -8,6 +8,7 @@ const {
   ERR_BAD_REQUEST_STATUS,
   ERR_INTERNAL_SERVER_ERROR_STATUS
 } = require("../constants");
+
 module.exports = function(err, req, res, next) {
   if (err.name === ERR_SEQUELIZE_CONSTRAINT) {
     const errors = err.errors.reduce(function(acc, val) {

@@ -1,5 +1,13 @@
 "use strict";
 const { hashPassword } = require("../libs");
+const {
+  ERR_USERNAME_EMPTY_MESSAGE,
+  ERR_USERNAME_NULL_MESSAGE,
+  ERR_EMAIL_INVALID_MESSAGE,
+  ERR_EMAIL_NULL_MESSAGE,
+  ERR_PASSWORD_LENGTH_MESSAGE,
+  ERR_PASSWORD_NULL_MESSAGE
+} = require("../constants");
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
   class User extends Model {}
@@ -11,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             args: true,
-            msg: "username should not be empty"
+            msg: ERR_USERNAME_EMPTY_MESSAGE
           },
           notNull: {
-            msg: "please enter your username"
+            msg: ERR_USERNAME_NULL_MESSAGE
           }
         }
       },
@@ -25,10 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           isEmail: {
             args: true,
-            msg: "invalid email format"
+            msg: ERR_EMAIL_INVALID_MESSAGE
           },
           notNull: {
-            msg: "please enter your email"
+            msg: ERR_EMAIL_NULL_MESSAGE
           }
         }
       },
@@ -36,16 +44,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            args: true,
-            msg: "password should not be empty"
-          },
           len: {
             args: [6],
-            msg: "password at least have 6 characters"
+            msg: ERR_PASSWORD_LENGTH_MESSAGE
           },
           notNull: {
-            msg: "please enter your password"
+            msg: ERR_PASSWORD_NULL_MESSAGE
           }
         }
       }
