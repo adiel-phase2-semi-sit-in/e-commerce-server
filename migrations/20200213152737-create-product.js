@@ -48,7 +48,7 @@ module.exports = {
           type: "check",
           where: {
             stock: {
-              [Sequelize.Op.gt]: 0
+              [Sequelize.Op.gte]: 0
             }
           }
         })

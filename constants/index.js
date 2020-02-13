@@ -26,6 +26,16 @@ const ERR_EMAIL_NULL_MESSAGE = "Email is required field";
 const ERR_PASSWORD_NULL_MESSAGE = "Password is required field";
 const ERR_PASSWORD_LENGTH_MESSAGE = "Password at least have 6 characters";
 
+// product
+const ERR_PRODUCT_NAME_NULL_MESSAGE = "Product name is required field";
+const ERR_PRODUCT_NAME_EMPTY_MESSAGE = "Product name should not be empty";
+const ERR_PRODUCT_PRICE_NULL_MESSAGE = "Product price is required field";
+const ERR_PRODUCT_PRICE_VALUE_MESSAGE =
+  "Product price value should greater than 0";
+const ERR_PRODUCT_STOCK_NULL_MESSAGE = "Product stock is required field";
+const ERR_PRODUCT_STOCK_VALUE_MESSAGE =
+  "Product stock value should greater equal than 0";
+
 // export
 module.exports = {
   ERR_INVALID_EMAIL_PASSWORD,
