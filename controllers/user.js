@@ -6,7 +6,7 @@ const {
   SUCCESS_SIGNIN_MESSAGE
 } = require("../constants");
 
-async function signUp(req, res, next) {
+async function signUp(req, res) {
   const { username, email, password } = req.body;
   const user = await User.create({ username, email, password });
   const token = generateToken({
