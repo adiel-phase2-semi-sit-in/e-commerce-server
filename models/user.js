@@ -1,4 +1,5 @@
 "use strict";
+const { hashPassword } = require("../libs");
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
   class User extends Model {}
@@ -50,6 +51,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
+      hooks: {
+        beforeCreate: function(user, opt) {
+          const hash = hashPassword(user.password);
+          user.password = hash;
+        }
+      },
       sequelize
     }
   );

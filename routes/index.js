@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const { signUp } = require("../controllers");
+const { signUp, signIn } = require("../controllers");
 const { wrapExpress } = require("../libs");
 
-router.post("/register", wrapExpress(signUp));
+router.post("/signUp", wrapExpress(signUp));
+router.post("/signIn", wrapExpress(signIn));
 
 module.exports = router;

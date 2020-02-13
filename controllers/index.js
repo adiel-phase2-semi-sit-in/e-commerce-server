@@ -1,5 +1,6 @@
-const { signUp } = require("./user");
+const { signUp, signIn } = require("./user");
 
 module.exports = {
-  signUp
+  signUp,
+  signIn
 };
