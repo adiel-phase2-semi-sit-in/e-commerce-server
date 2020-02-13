@@ -1,13 +1,10 @@
 const { User } = require("../models");
 
 class UserController {
-  static async register(req, res, next) {
+  static async register(req, res) {
     const { username, email, password } = req.body;
-    User.create({ username, email, password })
-      .then(response => {
-        res.status(201).json(response);
-      })
-      .catch(err => next(err));
+    const user = await User.create({ username, email, password });
+    res.status(200).json(user);
   }
 }
 
