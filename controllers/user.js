@@ -1,4 +1,4 @@
-import Models from "../models";
+import Model from "../models";
 import { generateToken, comparePassword } from "../libs";
 import {
   ERR_INVALID_EMAIL_PASSWORD,
@@ -6,7 +6,7 @@ import {
   SUCCESS_SIGNIN_MESSAGE
 } from "../constants";
 
-const User = Models.User;
+const User = Model.User;
 
 export const signUp = async (req, res) => {
   const { username, email, password } = req.body;
