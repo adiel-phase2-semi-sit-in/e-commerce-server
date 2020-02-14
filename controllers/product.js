@@ -1,6 +1,6 @@
-const { Product } = require("../models");
-
-async function createProduct(req, res, next) {
+import Model from "../models";
+const Product = Model.Product;
+export const createProduct = async (req, res, next) => {
   const { name, image_url, price, stock } = req.body;
   const product = await Product.create({
     name,
@@ -8,12 +8,8 @@ async function createProduct(req, res, next) {
     price,
     stock
   });
-  return res.status(201).json({
+  res.status(201).json({
     product,
     message: "Your product has been successfully added"
   });
-}
-
-module.export = {
-  createProduct
 };

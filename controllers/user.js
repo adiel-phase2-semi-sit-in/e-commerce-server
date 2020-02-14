@@ -1,12 +1,14 @@
-const { User } = require("../models");
-const { generateToken, comparePassword } = require("../libs");
-const {
+import Models from "../models";
+import { generateToken, comparePassword } from "../libs";
+import {
   ERR_INVALID_EMAIL_PASSWORD,
   SUCCESS_SIGNUP_MESSAGE,
   SUCCESS_SIGNIN_MESSAGE
-} = require("../constants");
+} from "../constants";
 
-async function signUp(req, res) {
+const User = Models.User;
+
+export const signUp = async (req, res) => {
   const { username, email, password } = req.body;
   const user = await User.create({ username, email, password });
   const access_token = generateToken({
@@ -18,9 +20,9 @@ async function signUp(req, res) {
     access_token,
     message: SUCCESS_SIGNUP_MESSAGE
   });
-}
+};
 
-async function signIn(req, res, next) {
+export const signIn = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ where: { email } });
   if (user) {
@@ -41,17 +43,11 @@ async function signIn(req, res, next) {
   } else {
     next(ERR_INVALID_EMAIL_PASSWORD);
   }
-}
+};
 
-async function findUser(key) {
+export const findUser = async key => {
   const user = await User.findOne({
     where: key
   });
   return user;
-}
-
-module.exports = {
-  signUp,
-  signIn,
-  findUser
 };

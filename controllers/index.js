@@ -1,9 +1,4 @@
-const { signUp, signIn, findUser } = require("./user");
-const { createProduct } = require("./product");
+import { signUp, signIn, findUser } from "./user";
+import { createProduct } from "./product";
 
-module.exports = {
-  signUp,
-  signIn,
-  findUser,
-  createProduct
-};
+export { signUp, signIn, findUser, createProduct };

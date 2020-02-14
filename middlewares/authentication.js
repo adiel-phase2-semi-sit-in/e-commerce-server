@@ -1,6 +1,6 @@
-const { verifyToken } = require("../libs");
-const { findUser } = require("../controllers");
-module.exports = async function(req, res, next) {
+import { verifyToken } from "../libs";
+import { findUser } from "../controllers";
+export default async (req, res, next) => {
   try {
     const token = req.headers.access_token;
     const decoded = verifyToken(token);
@@ -9,6 +9,7 @@ module.exports = async function(req, res, next) {
     });
     if (user) {
       req.decoded = decoded;
+      next();
     } else {
       next({
         status: 401,

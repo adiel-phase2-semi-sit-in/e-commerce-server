@@ -1,9 +1,10 @@
-const router = require("express").Router();
-const { wrapExpress } = require("../libs");
-const { createProduct } = require("../controllers");
-const { authentication } = require("../middlewares");
+import express from "express";
+import { wrapExpress } from "../libs";
+import { createProduct } from "../controllers";
+import { authentication } from "../middlewares";
+const router = express.Router();
 
 router.use(authentication);
 router.post("/", wrapExpress(createProduct));
 
-module.exports = router;
+export { router };

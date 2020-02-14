@@ -1,4 +1,4 @@
-const {
+import {
   ERR_SEQUELIZE_CONSTRAINT,
   ERR_SEQUELIZE_UNIQUE_MESSAGE,
   ERR_SEQUELIZE_VALIDATION,
@@ -9,9 +9,9 @@ const {
   ERR_INTERNAL_SERVER_ERROR_STATUS,
   ERR_INVALID_USER_ACCESS_TOKEN,
   ERR_AUTHENTICATION_MESSAGE
-} = require("../constants");
+} from "../constants";
 
-module.exports = function(err, req, res, next) {
+export default (err, req, res, next) => {
   if (err.name === ERR_SEQUELIZE_CONSTRAINT) {
     const errors = err.errors.reduce(function(acc, val) {
       if (val.message == ERR_SEQUELIZE_UNIQUE_MESSAGE) {

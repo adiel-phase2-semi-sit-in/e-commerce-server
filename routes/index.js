@@ -1,11 +1,13 @@
-const router = require("express").Router();
-const { signUp, signIn } = require("../controllers");
-const { wrapExpress } = require("../libs");
-const products = require("./product");
+import express from "express";
+import { signUp, signIn } from "../controllers";
+import { wrapExpress } from "../libs";
+import { router as products } from "./product";
 
-router.post("/signUp", wrapExpress(signUp));
-router.post("/signIn", wrapExpress(signIn));
+const routes = express.Router();
 
-router.use("/products", products);
+routes.post("/signUp", wrapExpress(signUp));
+routes.post("/signIn", wrapExpress(signIn));
 
-module.exports = router;
+routes.use("/products", products);
+
+export { routes };

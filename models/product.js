@@ -1,5 +1,5 @@
 "use strict";
-const {
+import {
   ERR_PRODUCT_NAME_EMPTY_MESSAGE,
   ERR_PRODUCT_NAME_NULL_MESSAGE,
   ERR_PRODUCT_PRICE_NULL_MESSAGE,
@@ -8,9 +8,9 @@ const {
   ERR_PRODUCT_STOCK_VALUE_MESSAGE,
   ERR_PRODUCT_PRICE_DATATYPE_MESSAGE,
   ERR_PRODUCT_STOCK_DATATYPE_MESSAGE
-} = require("../constants");
+} from "../constants";
 
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
   class Product extends Model {}
   Product.init(

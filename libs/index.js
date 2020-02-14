@@ -1,8 +1,8 @@
-const wrapExpress = require("./wrapExpress");
-const { verifyToken, generateToken } = require("./jsonwebtoken");
-const { hashPassword, comparePassword } = require("./bcrypt");
+import wrapExpress from "./wrapExpress";
+import { verifyToken, generateToken } from "./jsonwebtoken";
+import { hashPassword, comparePassword } from "./bcrypt";
 
-module.exports = {
+export {
   wrapExpress,
   verifyToken,
   generateToken,
