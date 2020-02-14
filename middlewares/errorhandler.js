@@ -6,7 +6,9 @@ const {
   ERR_INTERNAL_SERVER_ERROR_MESSAGE,
   ERR_UNAUTHORIZED_STATUS,
   ERR_BAD_REQUEST_STATUS,
-  ERR_INTERNAL_SERVER_ERROR_STATUS
+  ERR_INTERNAL_SERVER_ERROR_STATUS,
+  ERR_INVALID_USER_ACCESS_TOKEN,
+  ERR_AUTHENTICATION_MESSAGE
 } = require("../constants");
 
 module.exports = function(err, req, res, next) {
@@ -24,6 +26,8 @@ module.exports = function(err, req, res, next) {
       return acc;
     }, []);
     res.status(ERR_BAD_REQUEST_STATUS).json(errors);
+  } else if (err.name === ERR_INVALID_USER_ACCESS_TOKEN) {
+    res.status(ERR_UNAUTHORIZED_STATUS).json(ERR_AUTHENTICATION_MESSAGE);
   } else {
     res
       .status(err.status || ERR_INTERNAL_SERVER_ERROR_STATUS)

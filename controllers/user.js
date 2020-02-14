@@ -9,13 +9,13 @@ const {
 async function signUp(req, res) {
   const { username, email, password } = req.body;
   const user = await User.create({ username, email, password });
-  const token = generateToken({
+  const access_token = generateToken({
     id: user.id,
     username: user.username,
     email: user.email
   });
   return res.status(201).json({
-    token,
+    access_token,
     message: SUCCESS_SIGNUP_MESSAGE
   });
 }
@@ -26,13 +26,13 @@ async function signIn(req, res, next) {
   if (user) {
     const userPw = comparePassword(password, user.password);
     if (userPw) {
-      const token = generateToken({
+      const access_token = generateToken({
         id: user.id,
         username: user.username,
         email: user.email
       });
       return res.status(200).json({
-        token,
+        access_token,
         message: SUCCESS_SIGNIN_MESSAGE
       });
     } else {
@@ -43,7 +43,15 @@ async function signIn(req, res, next) {
   }
 }
 
+async function findUser(key) {
+  const user = await User.findOne({
+    where: key
+  });
+  return user;
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  findUser
 };

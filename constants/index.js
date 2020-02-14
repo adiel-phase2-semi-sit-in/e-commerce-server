@@ -37,6 +37,13 @@ const ERR_PRODUCT_STOCK_NULL_MESSAGE = "Product stock is required field";
 const ERR_PRODUCT_STOCK_DATATYPE_MESSAGE = "Product stock is numeric field";
 const ERR_PRODUCT_STOCK_VALUE_MESSAGE =
   "Product stock value should greater equal than 0";
+const ERR_PRODUCT_NOT_FOUND_MESSAGE =
+  "The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable";
+
+// authentication and authorized
+const ERR_AUTHENTICATION_MESSAGE =
+  "To continue access this feature, please sign in to your account";
+const ERR_INVALID_USER_ACCESS_TOKEN = "JsonWebTokenError";
 // export
 module.exports = {
   ERR_INVALID_EMAIL_PASSWORD,
@@ -64,5 +71,7 @@ module.exports = {
   ERR_PRODUCT_STOCK_NULL_MESSAGE,
   ERR_PRODUCT_STOCK_VALUE_MESSAGE,
   ERR_PRODUCT_PRICE_DATATYPE_MESSAGE,
-  ERR_PRODUCT_STOCK_DATATYPE_MESSAGE
+  ERR_PRODUCT_STOCK_DATATYPE_MESSAGE,
+  ERR_INVALID_USER_ACCESS_TOKEN,
+  ERR_AUTHENTICATION_MESSAGE
 };
