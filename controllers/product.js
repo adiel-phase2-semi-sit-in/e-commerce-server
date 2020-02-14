@@ -1,5 +1,5 @@
 import Model from "../models";
-const Product = Model.Product;
+const { Product } = Model;
 export const createProduct = async (req, res, next) => {
   const { name, image_url, price, stock } = req.body;
   const product = await Product.create({

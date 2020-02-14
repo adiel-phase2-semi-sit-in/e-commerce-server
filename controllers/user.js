@@ -6,7 +6,7 @@ import {
   SUCCESS_SIGNIN_MESSAGE
 } from "../constants";
 
-const User = Model.User;
+const { User } = Model;
 
 export const signUp = async (req, res) => {
   const { username, email, password } = req.body;
