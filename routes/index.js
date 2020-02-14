@@ -2,12 +2,12 @@ import express from "express";
 import { signUp, signIn } from "../controllers";
 import { wrapExpress } from "../libs";
 import { router as products } from "./product";
+import { authentication } from "../middlewares";
+const router = express.Router();
 
-const routes = express.Router();
+router.post("/signUp", wrapExpress(signUp));
+router.post("/signIn", wrapExpress(signIn));
+router.use(authentication);
+router.use("/products", products);
 
-routes.post("/signUp", wrapExpress(signUp));
-routes.post("/signIn", wrapExpress(signIn));
-
-routes.use("/products", products);
-
-export { routes };
+export { router };

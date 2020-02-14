@@ -1,19 +1,20 @@
 import { verifyToken } from "../libs";
 import { findUser } from "../controllers";
+import {
+  ERR_UNAUTHORIZED_STATUS,
+  ERR_AUTHENTICATION_MESSAGE
+} from "../constants";
 export default async (req, res, next) => {
   try {
     const token = req.headers.access_token;
     const decoded = verifyToken(token);
-    const user = await findUser({
-      id: decoded.id
-    });
-    if (user) {
-      req.decoded = decoded;
+    req.user = await findUser(decoded.id);
+    if (req.user) {
       next();
     } else {
       next({
-        status: 401,
-        message: "Please sign in first"
+        status: ERR_UNAUTHORIZED_STATUS,
+        message: ERR_AUTHENTICATION_MESSAGE
       });
     }
   } catch (err) {

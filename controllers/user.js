@@ -9,12 +9,13 @@ import {
 const { User } = Model;
 
 export const signUp = async (req, res) => {
-  const { username, email, password } = req.body;
-  const user = await User.create({ username, email, password });
+  const { username, email, password, role } = req.body;
+  const user = await User.create({ username, email, password, role });
   const access_token = generateToken({
     id: user.id,
     username: user.username,
-    email: user.email
+    email: user.email,
+    role: user.role
   });
   return res.status(201).json({
     access_token,
@@ -31,7 +32,8 @@ export const signIn = async (req, res, next) => {
       const access_token = generateToken({
         id: user.id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        role: user.role
       });
       return res.status(200).json({
         access_token,
@@ -45,9 +47,11 @@ export const signIn = async (req, res, next) => {
   }
 };
 
-export const findUser = async key => {
+export const findUser = async id => {
   const user = await User.findOne({
-    where: key
+    where: {
+      id
+    }
   });
   return user;
 };

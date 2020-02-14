@@ -1,4 +1,4 @@
 import errorhandler from "./errorhandler";
 import authentication from "./authentication";
-
-export { errorhandler, authentication };
+import permit from "./permit";
+export { errorhandler, authentication, permit };

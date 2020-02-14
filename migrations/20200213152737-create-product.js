@@ -13,6 +13,9 @@ module.exports = {
           allowNull: false,
           type: Sequelize.STRING
         },
+        description: {
+          type: Sequelize.STRING
+        },
         image_url: {
           type: Sequelize.STRING
         },
@@ -38,7 +41,7 @@ module.exports = {
           type: "check",
           where: {
             price: {
-              [Sequelize.Op.gt]: 0
+              [Sequelize.Op.gte]: 0
             }
           }
         })

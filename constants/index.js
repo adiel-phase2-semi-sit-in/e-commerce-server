@@ -35,17 +35,17 @@ export const ERR_PRODUCT_PRICE_NULL_MESSAGE = "Product price is required field";
 export const ERR_PRODUCT_PRICE_DATATYPE_MESSAGE =
   "Product price is numeric field";
 export const ERR_PRODUCT_PRICE_VALUE_MESSAGE =
-  "Product price value should greater than 0";
+  "Product price should should not be less than 0";
 export const ERR_PRODUCT_STOCK_NULL_MESSAGE = "Product stock is required field";
 export const ERR_PRODUCT_STOCK_DATATYPE_MESSAGE =
   "Product stock is numeric field";
 export const ERR_PRODUCT_STOCK_VALUE_MESSAGE =
-  "Product stock value should greater equal than 0";
+  "Product stock should not be less than 0";
 export const ERR_PRODUCT_NOT_FOUND_MESSAGE =
   "The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable";
 
 // authentication and authorized
 export const ERR_AUTHENTICATION_MESSAGE =
   "To continue access this feature, please sign in to your account";
+export const ERR_PERMIT_MESSAGE = "Only Admin can access this feature";
 export const ERR_INVALID_USER_ACCESS_TOKEN = "JsonWebTokenError";
-// export

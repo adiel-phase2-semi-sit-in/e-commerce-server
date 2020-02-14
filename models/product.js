@@ -19,12 +19,18 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: ERR_PRODUCT_NAME_NULL_MESSAGE
+          notNull: {
+            args: true,
+            msg: ERR_PRODUCT_NAME_NULL_MESSAGE
+          }
         },
         notEmpty: {
           args: true,
           msg: ERR_PRODUCT_NAME_EMPTY_MESSAGE
         }
+      },
+      description: {
+        type: DataTypes.STRING
       },
       image_url: {
         type: DataTypes.STRING
@@ -37,9 +43,12 @@ export default (sequelize, DataTypes) => {
             args: true,
             msg: ERR_PRODUCT_PRICE_DATATYPE_MESSAGE
           },
-          notNull: ERR_PRODUCT_PRICE_NULL_MESSAGE,
+          notNull: {
+            args: true,
+            msg: ERR_PRODUCT_PRICE_NULL_MESSAGE
+          },
           min: {
-            args: 1,
+            args: [0],
             msg: ERR_PRODUCT_PRICE_VALUE_MESSAGE
           }
         }
@@ -52,9 +61,12 @@ export default (sequelize, DataTypes) => {
             args: true,
             msg: ERR_PRODUCT_STOCK_DATATYPE_MESSAGE
           },
-          notNull: ERR_PRODUCT_STOCK_NULL_MESSAGE,
+          notNull: {
+            args: true,
+            msg: ERR_PRODUCT_STOCK_NULL_MESSAGE
+          },
           min: {
-            args: 0,
+            args: [0],
             msg: ERR_PRODUCT_STOCK_VALUE_MESSAGE
           }
         }
