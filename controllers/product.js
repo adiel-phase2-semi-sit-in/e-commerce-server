@@ -1,4 +1,4 @@
-import Model from "../models";
+import Model from "../db/models";
 const { Product } = Model;
 export const createProduct = async (req, res, next) => {
   const { name, description, image_url, price, stock } = req.body;

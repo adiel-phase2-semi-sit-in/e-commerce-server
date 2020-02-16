@@ -1,5 +1,5 @@
 "use strict";
-import { hashPassword } from "../libs";
+import { hashPassword } from "../../libs";
 import {
   ERR_USERNAME_EMPTY_MESSAGE,
   ERR_USERNAME_NULL_MESSAGE,
@@ -8,7 +8,7 @@ import {
   ERR_PASSWORD_LENGTH_MESSAGE,
   ERR_PASSWORD_NULL_MESSAGE,
   ERR_ROLE_ENUM_MESSAGE
-} from "../constants";
+} from "../../constants";
 export default (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
   class User extends Model {}

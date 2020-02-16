@@ -1,5 +1,5 @@
 import { signUp, signIn, findUser } from "./user";
-import { addToCart, getUserCart } from "./cartservice";
+import { addToCart } from "./addToCart";
 import {
   createProduct,
   updateProduct,
@@ -15,6 +15,5 @@ export {
   updateProduct,
   deleteProduct,
   getProduct,
-  addToCart,
-  getUserCart
+  addToCart
 };

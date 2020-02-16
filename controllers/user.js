@@ -1,4 +1,4 @@
-import Model from "../models";
+import Model from "../db/models";
 import { generateToken, comparePassword } from "../libs";
 import {
   ERR_INVALID_EMAIL_PASSWORD,
@@ -29,12 +29,15 @@ export const signIn = async (req, res, next) => {
   if (user) {
     const userPw = comparePassword(password, user.password);
     if (userPw) {
-      const access_token = generateToken({
+      const payload = {
         id: user.id,
         username: user.username,
         email: user.email,
         role: user.role
-      });
+      };
+      const access_token = generateToken(payload);
+      req.session.user = payload;
+      console.log(req.session);
       return res.status(200).json({
         access_token,
         message: SUCCESS_SIGNIN_MESSAGE

@@ -8,7 +8,7 @@ import {
   ERR_PRODUCT_STOCK_VALUE_MESSAGE,
   ERR_PRODUCT_PRICE_DATATYPE_MESSAGE,
   ERR_PRODUCT_STOCK_DATATYPE_MESSAGE
-} from "../constants";
+} from "../../constants";
 
 export default (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
@@ -78,6 +78,7 @@ export default (sequelize, DataTypes) => {
   );
   Product.associate = function(models) {
     // associations can be defined here
+    Product.hasMany(models.CartMeta);
   };
   return Product;
 };
